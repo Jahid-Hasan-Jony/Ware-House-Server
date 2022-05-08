@@ -41,6 +41,12 @@ async function run() {
             const cursor = await foodsCollection.findOne(query);
             res.send(cursor);
         })
+        // add product
+        app.post('/foods', async (req, res) => {
+            const newFood = req.body;
+            const result = await foodsCollection.insertOne(newFood);
+            res.send(result);
+        })
     }
     finally { }
 }
@@ -53,5 +59,4 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log('server working')
-    console.log()
 })
