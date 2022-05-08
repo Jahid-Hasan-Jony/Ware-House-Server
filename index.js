@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors');
+const jwt = require('jsonwebtoken')
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -18,6 +19,11 @@ async function run() {
     try {
         await client.connect();
         const foodsCollection = client.db('gloceryStore').collection('foods')
+        //Auth
+        app.get('/login', async (req, res){
+
+        })
+        //Others
         app.get('/foods', async (req, res) => {
             const query = {};
             const cursor = foodsCollection.find(query);
