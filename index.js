@@ -71,9 +71,9 @@ run().catch(console.dir)
 
 
 app.get('/', (req, res) => {
-    res.send('okk response doing')
+    res.send('Server Response welled')
 })
 
 app.listen(port, () => {
-    console.log('server working')
+    console.log('server working...')
 })
