@@ -47,6 +47,13 @@ async function run() {
             const result = await foodsCollection.insertOne(newFood);
             res.send(result);
         })
+        // delete item
+        app.delete('/foods/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await foodsCollection.deleteOne(query);
+            res.send(result);
+        })
     }
     finally { }
 }
