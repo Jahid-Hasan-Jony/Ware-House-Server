@@ -20,9 +20,13 @@ async function run() {
         await client.connect();
         const foodsCollection = client.db('gloceryStore').collection('foods')
         //Auth
-        app.get('/login', async (req, res){
-
-        })
+        // app.post('/login', async (req, res) => {
+        //     const user = req.body;
+        //     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+        //         expiresIn: '1d'
+        //     });
+        //     res.send({ accessToken });
+        // })
         //Others
         app.get('/foods', async (req, res) => {
             const query = {};
